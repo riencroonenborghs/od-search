@@ -17,13 +17,13 @@
       <flex-row>
         <md-list-item class="md-inset">
           <span class="query-type">{{search.queryType.label}}</span>
-          <md-checkbox v-model="search.alternative" disabled>
+          <md-checkbox v-model="search.alternative" disabled v-if="!search.tpb">
             Alternative?
           </md-checkbox>
-          <md-checkbox v-model="search.quoted" disabled>
+          <md-checkbox v-model="search.quoted" disabled v-if="!search.tpb">
             Quoted?
           </md-checkbox>
-          <md-checkbox v-model="search.incognito" disabled>
+          <md-checkbox v-model="search.incognito" disabled v-if="!search.tpb">
             Incognito?
           </md-checkbox>
         </md-list-item>
@@ -56,6 +56,9 @@ export default {
           break
         case 'General':
           icon = 'search'
+          break
+        case 'TPB':
+          icon = 'cloud'
           break
         default:
           icon = 'search'

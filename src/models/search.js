@@ -16,4 +16,8 @@ export class Search {
 
   get incognito () { return this._incognito }
   set incognito (incognito) { this._incognito = incognito }
+
+  get tpb () {
+    return this.queryType.extensions.filter((type) => type === 'tpb').length > 0
+  }
 }
