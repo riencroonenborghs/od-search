@@ -41,17 +41,17 @@
                 </md-select>
               </md-field>
             </div>
-            <div class="right-pad" v-if="!tpb">
+            <div class="right-pad" v-if="!noOptions">
               <md-checkbox v-model="alternative">
                 Alternative?
               </md-checkbox>
             </div>
-            <div class="right-pad" v-if="!tpb">
+            <div class="right-pad" v-if="!noOptions">
               <md-checkbox v-model="quoted">
                 Quoted?
               </md-checkbox>
             </div>
-            <div v-if="!tpb">
+            <div>
               <md-checkbox v-model="incognito">
                 Incognito?
               </md-checkbox>
@@ -68,8 +68,6 @@
 
 <script>
 import { Search } from '@/models/search'
-import { GoogleQueryService } from '@/services/google_query_service'
-import { TPBService } from '@/services/tpb_service'
 import { SearchService } from '@/services/search_service'
 
 export default {
@@ -106,11 +104,11 @@ export default {
     },
     computedQuery: function () {
       const search = this.createSearch()
-      const service = search.tpb ? new TPBService(search) : new GoogleQueryService(search)
-      return service.readableUrl
+      const service = new SearchService(search)
+      return service.service.readableUrl
     },
-    tpb: function () {
-      return this.createSearch().tpb
+    noOptions: function () {
+      return this.createSearch().noOptions
     }
   },
   methods: {

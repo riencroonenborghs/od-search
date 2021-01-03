@@ -17,7 +17,19 @@ export class Search {
   get incognito () { return this._incognito }
   set incognito (incognito) { this._incognito = incognito }
 
+  get noOptions () {
+    return this.queryType.noOptions || false
+  }
+
   get tpb () {
-    return this.queryType.extensions.filter((type) => type === 'tpb').length > 0
+    return this.queryType.label === 'TPB'
+  }
+
+  get rarbg () {
+    return this.queryType.label === 'RARBG'
+  }
+
+  get youtube () {
+    return this.queryType.label === 'Youtube'
   }
 }

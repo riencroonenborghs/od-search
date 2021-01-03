@@ -32,9 +32,11 @@ export class QueryTypeService {
   _setDefaults () {
     const list = [
       Object.assign(new QueryType(), { label: 'Movies', extensions: ['avi', 'mp4', 'mkv', 'vob', 'div'] }),
+      Object.assign(new QueryType(), { label: 'TPB', noOptions: true }),
+      Object.assign(new QueryType(), { label: 'RARBG', noOptions: true }),
+      Object.assign(new QueryType(), { label: 'Youtube', noOptions: true }),
       Object.assign(new QueryType(), { label: 'Music', extensions: ['mp3', 'flac', 'aac'] }),
       Object.assign(new QueryType(), { label: 'Books', extensions: ['pdf', 'epub', 'mob'] }),
-      Object.assign(new QueryType(), { label: 'TPB', extensions: ['tpb'] }),
       Object.assign(new QueryType(), { label: 'Mac Software', extensions: ['dmg', 'sit'] }),
       Object.assign(new QueryType(), { label: 'General', extensions: [] })
     ]

@@ -1,4 +1,7 @@
 export class QueryType {
+  get noOptions () { return this._noOptions }
+  set noOptions (noOptions) { this._noOptions = noOptions }
+
   get label () { return this._label }
   set label (label) { this._label = label }
 
@@ -8,7 +11,8 @@ export class QueryType {
   get json () {
     return {
       label: this._label,
-      extensions: this._extensions
+      extensions: this._extensions,
+      noOptions: this._noOptions || false
     }
   }
 }
